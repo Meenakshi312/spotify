@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* background-color: black; */
+            font-family: sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: #000000;
+
+        }
+
+        .container {
+            /* background-color: aliceblue; */
+
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: row;
+            margin-top: 3em;
+            gap: 9em;
+            line-height: 2em;
+
+
+        }
+
+        .rowb>*:not(:nth-child(1)) {
+            opacity: 0.5;
+
+        }
+
+
+        .navleft {
+            display: flex;
+            flex-direction: row;
+            height: 9vh;
+            padding: 5px;
+
+        }
+
+        #navbar {
+
+            /* background-color: aliceblue; */
+            /* width: 800rem; */
+            height: 5em;
+            margin-bottom: 23em;
+            padding: 0px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            display: flex;
+        }
+
+        .search {
+            height: 3.5vh;
+            /* justify-content: center;
+            align-items: center;
+            text-align: end; */
+            display: flex;
+            background-color: #1f1f1f;
+            padding: 0.5em;
+            position: relative;
+            width: 25vw;
+            border-radius: 25px;
+            margin-top: 0.8em;
+            /* background-color: aliceblue; */
+            border: 2px ;
+      
+
+
+
+        }
+        /* #121212; */
+        input {
+            border: none;
+            font-weight: bold;
+            flex: 1;
+            outline: none;
+            color: white;
+            background-color: transparent;
+            /* opacity: 2%; */
+        }
+
+        .left {
+            background-color: #1f1f1f;
+            width: 23rem;
+            height: 38rem;
+            margin-top: 4.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            color: rgb(254, 250, 250);
+            position: fixed;
+            padding: 1em;
+            border-radius: 1em;
+        }
+
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            width: 72em;
+            height: 1em;
+            margin-left: 26em;
+            background-color: #2e2a2a;
+            border-radius: 1em;
+            overflow-y: auto;
+            margin-top: 4.5em;
+
+            height: calc(100vh - 5em);
+            /* Take full height minus navbar */
+            width: calc(100% - 26em);
+            padding: 1.5em;
+
+
+        }
+
+        .rightRows {
+            display: flex;
+            flex-direction: column;
+            gap: 3em;
+        }
+
+        .row2 {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .navright {
+            color: white;
+            justify-content: end;
+            display: flex;
+            margin-left: 24.5em;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            height: 9vh;
+            padding: 5px;
+        }
+
+        #login {
+            color: black;
+            background-color: white;
+            border-radius: 25px;
+            height: 3em;
+            width: 6.5em;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+            /* padding: 2em; */
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5em;
+            color: white;
+
+        }
+
+        h3 {
+            bottom: 20px;
+        }
+
+        .box1 {
+            margin-top: 2vh;
+            background-color: rgb(43, 44, 45);
+            width: 21em;
+            height: 8em;
+            padding: 0.8em;
+            gap: 1em;
+            display: flex;
+            flex-direction: column;
+            border-radius: 1.2em;
+            justify-content: space-evenly;
+            font-size: medium;
+            /* align-content: center; */
+        }
+
+        .box2 {
+            background-color: rgb(43, 44, 45);
+            width: 21em;
+            height: 8em;
+            gap: 1em;
+            padding: 0.8em;
+            border-radius: 1.2em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            font-size: medium;
+            /* align-content: center; */
+        }
+
+        .create {
+            background-color: white;
+            /* color: black; */
+        }
+
+        #left-btn {
+            padding: 0.8em;
+            border-radius: 2em;
+            font-weight: 600;
+        }
+
+        .leftHea {
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+        }
+
+        #library {
+            width: 1.5em;
+            height: 1.5em;
+        }
+
+        .rules {
+            /* background-color: aqua; */
+            padding: 1em;
+            width: 30em;
+            display: grid;
+            gap: 1em;
+            /* grid-template-rows: repeat(4,1fr); */
+            grid-template-columns: repeat(4, 1fr);
+            font-size: 0.7em;
+        }
+
+        .rules-btn {
+            width: 7vw;
+            background-color: none;
+            border-radius: 2em;
+            padding: 0.5em;
+        }
+
+        .rules-cookies {
+            font-size: 0.7em;
+            padding-left: 1em;
+            margin-top: -1em;
+            font-weight: bold;
+        }
+
+        img {
+            width: 10em;
+            height: 10em;
+            border-radius: 90%;
+            z-index:1;
+        }
+
+        .a {
+            /* background-color: aliceblue; */
+            padding: 0.3em;
+            padding-top: 1em;
+            position: relative; /* Required for absolute positioning */
+    display: inline-block; /* Ensures proper width */
+
+
+
+        }
+.a:hover{
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
+
+}
+        .b p {
+            margin-top: 0.5em;
+            z-index: 2;
+        }
+
+        .b {
+            display: flex;
+            /* background-color: aliceblue; */
+            flex-direction: column;
+            padding: 0.3em;
+            padding-top: 1em;
+        }
+
+        .artists {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5em;
+            margin-top: 0.5em;
+
+        }
+
+        #a-id {
+            font-size: 0.8em;
+            font-weight: 100;
+            padding-top: 0.4em;
+        }
+
+        .albums {
+            display: flex;
+            flex-direction: column;
+            /* gap: 0.5em; */
+            /* margin-top: 1.5em; */
+        }
+
+        #alb-img {
+            border-radius: 0.6em;
+
+
+        }
+        .hover-img {
+            display: none;
+            position: absolute;
+            top: 65%; /* Aligns middle */
+            left: 65%; /* Positions it to the right */
+            transform: translateY(-60%); /* Adjusts for exact centering */
+            width: 85px; /* Adjust size as needed */
+            height: 50px;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    
+
+            
+            
+         
+        }
+        
+        .a:hover .hover-img {
+            display: block;
+       
+        }
+  .timebox {
+    background-color: rgb(25, 24, 25);
+    width: 100%;
+    max-width: 9em;
+    height: 0.3em;
+    position: relative;
+    z-index: 2;
+    top: -6em;
+    left: 0.5em;
+}
+
+.progress {
+    background-color: rgb(223, 214, 214); /* Added background color to make it visible */
+    height: 100%; /* Make it fill the height of .timebox */
+    width: 0%; /* Initially 0, updated in JavaScript */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="navbar">
+
+            <div class="navleft">
+                <svg width="64px" height="64px" viewBox="-12.8 -12.8 45.60 45.60" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#ffffff">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <title>spotify [#ffffff]</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs> </defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7479.000000)"
+                                fill="#ffffff">
+                                <g id="icons" transform="translate(56.000000, 160.000000)">
+                                    <path
+                                        d="M99.915,7327.865 C96.692,7325.951 91.375,7325.775 88.297,7326.709 C87.803,7326.858 87.281,7326.58 87.131,7326.085 C86.981,7325.591 87.26,7325.069 87.754,7324.919 C91.287,7323.846 97.159,7324.053 100.87,7326.256 C101.314,7326.52 101.46,7327.094 101.196,7327.538 C100.934,7327.982 100.358,7328.129 99.915,7327.865 L99.915,7327.865 Z M99.81,7330.7 C99.584,7331.067 99.104,7331.182 98.737,7330.957 C96.05,7329.305 91.952,7328.827 88.773,7329.792 C88.36,7329.916 87.925,7329.684 87.8,7329.272 C87.676,7328.86 87.908,7328.425 88.32,7328.3 C91.951,7327.198 96.466,7327.732 99.553,7329.629 C99.92,7329.854 100.035,7330.334 99.81,7330.7 L99.81,7330.7 Z M98.586,7333.423 C98.406,7333.717 98.023,7333.81 97.729,7333.63 C95.381,7332.195 92.425,7331.871 88.944,7332.666 C88.609,7332.743 88.274,7332.533 88.198,7332.197 C88.121,7331.862 88.33,7331.528 88.667,7331.451 C92.476,7330.58 95.743,7330.955 98.379,7332.566 C98.673,7332.746 98.766,7333.129 98.586,7333.423 L98.586,7333.423 Z M94,7319 C88.477,7319 84,7323.477 84,7329 C84,7334.523 88.477,7339 94,7339 C99.523,7339 104,7334.523 104,7329 C104,7323.478 99.523,7319.001 94,7319.001 L94,7319 Z"
+                                        id="spotify-[#ffffff]"> </path>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+
+                <svg width="64px" height="64px" viewBox="-10.24 -10.24 36.48 36.48" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path d="M1 6V15H6V11C6 9.89543 6.89543 9 8 9C9.10457 9 10 9.89543 10 11V15H15V6L8 0L1 6Z"
+                            fill="#ffffff"></path>
+                    </g>
+                </svg>
+
+                <div class="search">
+                    <img src="search-svgrepo-com.svg" style="width: 1.5em; height: 1.5em;">
+
+                    <input type="text" name="" id="navBar" placeholder="What do u want to play?">
+                    <svg style="display: flex; flex-direction:end;" id="library" data-encore-id="icon" role="img"
+                        aria-hidden="true" class="Svg-sc-ytk21e-0 bneLcE e-9541-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z">
+                        </path>
+
+                </div>
+            </div>
+            <div class="navright">
+
+                <p>Premium</p>
+                <p>Support</p>
+                <p>Download</p>
+
+
+                <svg width="64px" height="64px" viewBox="-23.04 -23.04 70.08 70.08" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path
+                            d="M8 12L12 16M12 16L16 12M12 16V8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                            stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </svg>
+                <p>Install App</p>
+                <p>Sign up</p>
+                <button id="login">Log in</button>
+
+
+
+            </div>
+        </nav>
+        <div class="content">
+            <div class="left">
+                <div class="leftHea">
+                    <svg id="library" data-encore-id="icon" role="img" aria-hidden="true"
+                        class="Svg-sc-ytk21e-0 bneLcE e-9541-icon" viewBox="0 0 24 24">
+                        <path
+                            d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z">
+                        </path>
+                        <h3>Your library</h3>
+
+
+                </div>
+
+
+
+                <div class="box1">
+                    <p style="font-weight: bold;font-size:1.1em;">Create your first playlist</p>
+                    <p style="margin-top: -1em;font-size:0.9em;">It's easy,we'll help you</p>
+                    <button style="width: 9rem; padding: 0.6em; border: none;" id="left-btn">Create playlist</button>
+                </div>
+                <div class="box2">
+                    <p style="font-weight: bold;font-size:1.1em;">Lets's find some podcasts to follow</p>
+                    <p style="margin-top: -1.2em; font-size:0.9em;">We'll keep you updated on new episodes</p>
+                    <button style="width: 9rem ; padding: 0.6em; border: none;" id="left-btn">Browse podcasts</button>
+                </div>
+
+                <div class="rules">
+                    <p>Legal</p>
+                    <p>Safety&PrivacyCenter</p>
+                    <p>PrivacyPolicy</p>
+                    <p>Cookies</p>
+                    <p>About Ads</p>
+                    <p>Accessibility</p>
+
+
+                </div>
+
+                <p class="rules-cookies">Cookies</p>
+                <button class="rules-btn">
+
+                    <p>English</p>
+                </button>
+
+
+            </div>
+            <div class="right">
+                <div class="rightRows">
+                    <div class="row1">
+                        <h2>Popular artists</h2>
+                        <div class="show"
+                            style="display: flex; justify-content:end;font-size:small;width:65.2vw;margin-top: -2vh;background:transparent">
+                            Show all</div>
+                        <div class="artists">
+                            <div class="a">
+                                <img src="pritam.jpg" alt="">
+                                <p>Pritam</p>
+                                <p id="a-id">Artist</p>
+                                <img src="play2.png" class="hover-img" >
+
+
+                            </div>
+                            <div class="a">
+                                <img src="arji.jpg.jpg" alt="">
+                                <p>Arjith Singh</p>
+                                <p id="a-id">Artist</p>
+                                <img src="play2.png" class="hover-img">
+
+                            </div>
+                            <div class="a">
+                                <img src="rehman.jpg" alt="">
+                                <p>A.R.Rahman</p>
+                                <p id="a-id">Artist</p>
+                                <img src="play2.png" class="hover-img">
+
+                            </div>
+                            <div class="a">
+                                <img src="sj.jpg" alt="">
+                                <p>Sachin-Jigar</p>
+                                <p id="a-id">Artist</p>
+                                <img src="play2.png" class="hover-img">
+
+                            </div>
+                            <div class="a">
+                                <img src="gundu.jpg.jpg" alt="">
+                                <p>Vishal-Shekhar</p>
+                                <p id="a-id">Artist</p>
+                                <img src="play2.png" class="hover-img">
+
+                            </div>
+                            <div class="a">
+                                <img src="vs.jpg" alt="">
+                                <p>Asif Aslam</p>
+                                <p id="a-id">Artist</p>
+                                <img src="play2.png" class="hover-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row2">
+                        <h2>Popular albums and singles</h2>
+                        <div class="albums">
+                            <div class="show"
+                                style="display: flex; justify-content:end;font-size:small;width:65.2vw;margin-top: -2vh;background:transparent">
+                                Show all</div>
+                            <div class="artists">
+                                <div class="b">
+                                    <img id="alb-img" src="stk.jpg" alt="">
+                                    <p>Sanam Teri Kasam(Original Motion...</p>
+                                    <p id="a-id">Himesh Reshammiya</p>
+                                    <audio src="songs/stk.mp3" id="song"></audio>
+
+                                    <div class="timebox" >
+                                        <div class="progress"></div>
+                                      </div>
+
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="asiq.jpg" alt="">
+                                    <p>Aashiqui 2</p>
+                                    <p id="a-id">Mithoon,Ankit Tiwari,Jeet Gannguli</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="glory.jpg" alt="">
+                                    <p>Glory</p>
+                                    <p id="a-id">Yo Yo Honey Singh</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="jhhd.jpg" alt="">
+                                    <p>Yeh Jawanni Hai Deewani</p>
+                                    <p id="a-id">Pritam</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="muse.jpg" alt="">
+                                    <p>Who(Remixes)</p>
+                                    <p id="a-id">Jimin</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="mismatched.jpg" alt="">
+                                    <p>Mismatched:Season 3)Soundtrack from...</p>
+                                    <p id="a-id">Mismatched-ast</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row2">
+                        <h2>Popular albums and singles</h2>
+                        <div class="albums">
+                            <div class="show"
+                                style="display: flex; justify-content:end;font-size:small;width:65.2vw;margin-top: -2vh;background:transparent">
+                                Show all</div>
+                            <div class="artists">
+                                <div class="b">
+                                    <!-- <img id="alb-img" src="stk.jpg" alt=""> -->
+                                    <p>Sanam Teri Kasam(Original Motion...</p>
+                                    <p id="a-id">Himesh Reshammiya</p>
+                                    
+  
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="asiq.jpg" alt="">
+                                    <p>Aashiqui 2</p>
+                                    <p id="a-id">Mithoon,Ankit Tiwari,Jeet Gannguli</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="glory.jpg" alt="">
+                                    <p>Glory</p>
+                                    <p id="a-id">Yo Yo Honey Singh</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="jhhd.jpg" alt="">
+                                    <p>Yeh Jawanni Hai Deewani</p>
+                                    <p id="a-id">Pritam</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="muse.jpg" alt="">
+                                    <p>Who(Remixes)</p>
+                                    <p id="a-id">Jimin</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="mismatched.jpg" alt="">
+                                    <p>Mismatched:Season 3)Soundtrack from...</p>
+                                    <p id="a-id">Mismatched-ast</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    172.18.186.37
+                    <div class="row2">
+                        <h2>Popular albums and singles</h2>
+                        <div class="albums">
+                            <div class="show"
+                                style="display: flex; justify-content:end;font-size:small;width:65.2vw;margin-top: -2vh;background:transparent">
+                                Show all</div>
+                            <div class="artists">
+                                <div class="b">
+                                    <img id="alb-img" src="stk.jpg" alt="">
+                                    <p>Sanam Teri Kasam(Original Motion...</p>
+                                    <p id="a-id">Himesh Reshammiya</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="asiq.jpg" alt="">
+                                    <p>Aashiqui 2</p>
+                                    <p id="a-id">Mithoon,Ankit Tiwari,Jeet Gannguli</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="glory.jpg" alt="">
+                                    <p>Glory</p>
+                                    <p id="a-id">Yo Yo Honey Singh</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="jhhd.jpg" alt="">
+                                    <p>Yeh Jawanni Hai Deewani</p>
+                                    <p id="a-id">Pritam</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="muse.jpg" alt="">
+                                    <p>Who(Remixes)</p>
+                                    <p id="a-id">Jimin</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="mismatched.jpg" alt="">
+                                    <p>Mismatched:Season 3)Soundtrack from...</p>
+                                    <p id="a-id">Mismatched-ast</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row2">
+                        <h2>India's Best</h2>
+                        <div class="albums">
+                            <div class="show"
+                                style="display: flex; justify-content:end;font-size:small;width:65.2vw;margin-top: -2vh;background:transparent">
+                                Show all</div>
+                            <div class="artists">
+                                <div class="b">
+                                    <img id="alb-img" src="icon.jpg" alt="">
+                                    <!-- <p>Sanam Teri </p> -->
+                                    <p id="a-id">Hottest tracks from your favourite I-Pop Icons.Cover-King</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="bolly.jpg" alt="">
+                                    <!-- <p>Aashiqui 2</p> -->
+                                    <p id="a-id">Bollywood Central, jab baje toh seedha dil ke centre mein lage </p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="punjabi.jpg" alt="">
+                                    <!-- <p>Glory</p> -->
+                                    <p id="a-id">Ultimate 101 Punjabi Hits with Shubh</p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="kolly.jpg" alt="">
+                                    <!-- <p>Yeh Jawanni Hai Deewani</p> -->
+                                    <p id="a-id">Finest collection of Tamil Music from the past 10 years Cover : Amaran
+                                    </p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="tolly perals.jpg" alt="">
+                                    <!-- <p>Who(Remixes)</p> -->
+                                    <p id="a-id">he finest set of Telugu music from the past 10 years. Cover : Hi Nanna
+                                    </p>
+                                </div>
+                                <div class="b">
+                                    <img id="alb-img" src="molly.jpg" alt="">
+                                    <!-- <p>Mismatched:Season 3)Soundtrack from...</p> -->
+                                    <p id="a-id">Finest collection of Tamil Music from the past 10 years Cover :
+                                        Aavesham</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bottom">
+                    <div class="rowb">
+                        <div class="btm"><b>
+                                Company
+                            </b></div>
+                        <div class="btm">About</div>
+                        <div class="btm">Jobs</div>
+                        <div class="btm">For the Record</div>
+                    </div>
+                    <div class="rowb">
+                        <div class="btm"><b>
+                                Communities
+                            </b></div>
+
+                        <div class="btm">For Artists</div>
+                        <div class="btm">Developers</div>
+                        <div class="btm">Advertising</div>
+                        <div class="btm">Investors</div>
+                        <div class="btm">Vendors</div>
+                    </div>
+                    <div class="rowb">
+                        <div class="btm"><b>
+                                Useful links
+                            </b></div>
+
+                        <div class="btm">Support</div>
+                        <div class="btm">Free Mobile App</div>
+                    </div>
+                    <div class="rowb">
+                        <div class="btm"><b>
+                                Spotify Plans
+                            </b></div>
+
+                        <div class="btm">Premium Individual</div>
+                        <div class="btm">Premium Duo</div>
+                        <div class="btm">Premium Family</div>
+                        <div class="btm">Premium Student</div>
+                        <div class="btm">Spotify Free</div>
+                    </div>
+
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .video-container {
+            width: 60%;
+            margin: auto;
+            background: #000;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+        }
+
+        button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        input[type="range"] {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <video id="video" src="video.mp4" controls></video>
+        <div class="controls">
+            <button id="playPause">▶</button>
+            <input type="range" id="seekBar" value="0">
+            <button id="mute">🔊</button>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="1">
+            <button id="fullscreen">⛶</button>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById("video");
+        const playPauseBtn = document.getElementById("playPause");
+        const seekBar = document.getElementById("seekBar");
+        const muteBtn = document.getElementById("mute");
+        const volumeControl = document.getElementById("volume");
+        const fullscreenBtn = document.getElementById("fullscreen");
+
+        // Play/Pause Function
+        playPauseBtn.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();
+                playPauseBtn.textContent = "⏸";
+            } else {
+                video.pause();
+                playPauseBtn.textContent = "▶";
+            }
+        });
+
+        // Update Seek Bar
+        video.addEventListener("timeupdate", () => {
+            seekBar.value = (video.currentTime / video.duration) * 100;
+        });
+
+        // Seek Video
+        seekBar.addEventListener("input", () => {
+            video.currentTime = (seekBar.value / 100) * video.duration;
+        });
+
+        // Mute/Unmute
+        muteBtn.addEventListener("click", () => {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? "🔇" : "🔊";
+        });
+
+        // Volume Control
+        volumeControl.addEventListener("input", () => {
+            video.volume = volumeControl.value;
+        });
+
+        // Fullscreen Mode
+        fullscreenBtn.addEventListener("click", () => {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            }
+        });
+    </script>
+
+</body>
+</html>
