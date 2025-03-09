@@ -1,40 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const box = document.querySelector('.b');
-    const audio = document.getElementById('song'); // Corrected ID selection
-    const timebar = document.querySelector('.timebox'); // Corrected class selection
-    const progressbar = document.querySelector('.progress'); // Corrected class selection
+    const boxes = document.querySelectorAll('.b'); // Select all boxes
+    const audios = document.querySelectorAll('audio'); // Select all audio elements
 
-    // Update progress bar when audio plays
-    audio.addEventListener('timeupdate', () => {
-        const progressPercent = (audio.currentTime / audio.duration) * 100;
-        progressbar.style.width = `${progressPercent}%`;
-    });
+    boxes.forEach((box, index) => {
+        const audio = audios[index];
+        const timebar = box.querySelector('.timebox, .timebox2, .timebox3, .timebox4'); // Select any timebox variant inside the box
+        const progressbar = timebar.querySelector('.progress'); // Get the progress bar inside the selected timebox
 
-    // Seek functionality on clicking timebar
-    timebar.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevents the event from bubbling to 'box'
-        
-        const timelineWidth = timebar.offsetWidth;
-        const clickX = e.offsetX;
-        const duration = audio.duration;
+        if (!timebar || !progressbar) return; // Skip if no timebox is found in this box
 
-        audio.currentTime = (clickX / timelineWidth) * duration;
-    });
+        // Update progress bar when audio plays
+        audio.addEventListener('timeupdate', () => {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            progressbar.style.width = `${progressPercent}%`;
+        });
 
-    let isPlaying = false;
+        // Seek functionality on clicking timebar
+        timebar.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents the event from bubbling to 'box'
 
-    // Play/Pause functionality on clicking 'box' (excluding timebar)
-    box.addEventListener('click', function () {
-        if (isPlaying) {
-            audio.pause();
-        } else {
-            audio.play();
-        }
-        isPlaying = !isPlaying;
-    });
+            const timelineWidth = timebar.offsetWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
 
-    // Reset isPlaying when the song ends
-    audio.addEventListener('ended', function () {
-        isPlaying = false;
+            audio.currentTime = (clickX / timelineWidth) * duration;
+        });
+
+        let isPlaying = false;
+
+        // Play/Pause functionality on clicking 'box' (excluding timebar)
+        box.addEventListener('click', function () {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                // Pause all other audios before playing the selected one
+                audios.forEach((a, i) => {
+                    if (i !== index) {
+                        a.pause();
+                    }
+                });
+                audio.play();
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Reset isPlaying when the song ends
+        audio.addEventListener('ended', function () {
+            isPlaying = false;
+        });
     });
 });

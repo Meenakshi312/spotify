@@ -316,9 +316,12 @@
             top: 65%; /* Aligns middle */
             left: 65%; /* Positions it to the right */
             transform: translateY(-60%); /* Adjusts for exact centering */
-            width: 85px; /* Adjust size as needed */
+            width: 50px; /* Adjust size as needed */
             height: 50px;
             transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        object-fit: cover;
+        background-color: transparent;
+        border-radius: 50%;
     
 
             
@@ -331,7 +334,7 @@
        
         }
   .timebox {
-    background-color: rgb(25, 24, 25);
+    background-color: rgb(255, 0, 0);
     width: 100%;
     max-width: 9em;
     height: 0.3em;
@@ -340,7 +343,36 @@
     top: -6em;
     left: 0.5em;
 }
-
+.timebox2 {
+    background-color: rgb(255, 0, 0);
+    width: 100%;
+    max-width: 9em;
+    height: 0.3em;
+    position: relative;
+    z-index: 2;
+    top: -4.6em;
+    left: 0.5em;
+}
+.timebox3 {
+    background-color: rgb(255, 0, 0);
+    width: 100%;
+    max-width: 9em;
+    height: 0.3em;
+    position: relative;
+    z-index: 2;
+    top: -3.7em;
+    left: 0.5em;
+}
+.timebox4 {
+    background-color: rgb(255, 0, 0);
+    width: 100%;
+    max-width: 9em;
+    height: 0.3em;
+    position: relative;
+    z-index: 2;
+    top: -4.9em;
+    left: 0.5em;
+}
 .progress {
     background-color: rgb(223, 214, 214); /* Added background color to make it visible */
     height: 100%; /* Make it fill the height of .timebox */
@@ -484,7 +516,7 @@
                                 <img src="pritam.jpg" alt="">
                                 <p>Pritam</p>
                                 <p id="a-id">Artist</p>
-                                <img src="play2.png" class="hover-img" >
+                                <img src="/clone/play22.png" class="hover-img" >
 
 
                             </div>
@@ -492,35 +524,35 @@
                                 <img src="arji.jpg.jpg" alt="">
                                 <p>Arjith Singh</p>
                                 <p id="a-id">Artist</p>
-                                <img src="play2.png" class="hover-img">
+                                <img src="/clone/play22.png" class="hover-img" >
 
                             </div>
                             <div class="a">
                                 <img src="rehman.jpg" alt="">
                                 <p>A.R.Rahman</p>
                                 <p id="a-id">Artist</p>
-                                <img src="play2.png" class="hover-img">
+                                <img src="/clone/play22.png" class="hover-img" >
 
                             </div>
                             <div class="a">
                                 <img src="sj.jpg" alt="">
                                 <p>Sachin-Jigar</p>
                                 <p id="a-id">Artist</p>
-                                <img src="play2.png" class="hover-img">
+                                <img src="/clone/play22.png" class="hover-img" >
 
                             </div>
                             <div class="a">
                                 <img src="gundu.jpg.jpg" alt="">
                                 <p>Vishal-Shekhar</p>
                                 <p id="a-id">Artist</p>
-                                <img src="play2.png" class="hover-img">
+                                <img src="/clone/play22.png" class="hover-img" >
 
                             </div>
                             <div class="a">
                                 <img src="vs.jpg" alt="">
                                 <p>Asif Aslam</p>
                                 <p id="a-id">Artist</p>
-                                <img src="play2.png" class="hover-img">
+                                <img src="/clone/play22.png" class="hover-img" >
                             </div>
                         </div>
                     </div>
@@ -547,26 +579,47 @@
                                     <img id="alb-img" src="asiq.jpg" alt="">
                                     <p>Aashiqui 2</p>
                                     <p id="a-id">Mithoon,Ankit Tiwari,Jeet Gannguli</p>
+                                    <audio src="/songs/stk.mp3" id="song"></audio>
+
+                                     <div class="timebox timebox2" >
+                                        <div class="progress"></div>
+                                      </div>
                                 </div>
                                 <div class="b">
                                     <img id="alb-img" src="glory.jpg" alt="">
                                     <p>Glory</p>
                                     <p id="a-id">Yo Yo Honey Singh</p>
+                                    <audio src="songs/stk.mp3" id="song"></audio>
+                                     <div class="timebox timebox3" >
+                                        <div class="progress"></div>
+                                      </div>
                                 </div>
                                 <div class="b">
                                     <img id="alb-img" src="jhhd.jpg" alt="">
                                     <p>Yeh Jawanni Hai Deewani</p>
                                     <p id="a-id">Pritam</p>
+                                    <audio src="songs/stk.mp3" id="song"></audio>
+                                     <div class="timebox timebox4" >
+                                        <div class="progress"></div>
+                                      </div>
                                 </div>
                                 <div class="b">
                                     <img id="alb-img" src="muse.jpg" alt="">
                                     <p>Who(Remixes)</p>
                                     <p id="a-id">Jimin</p>
+                                    <audio src="songs/stk.mp3" id="song"></audio>
+                                     <div class="timebox timebox3" >
+                                        <div class="progress"></div>
+                                      </div>
                                 </div>
                                 <div class="b">
                                     <img id="alb-img" src="mismatched.jpg" alt="">
                                     <p>Mismatched:Season 3)Soundtrack from...</p>
                                     <p id="a-id">Mismatched-ast</p>
+                                    <audio src="songs/stk.mp3" id="song"></audio>
+                                     <div class="timebox timebox4" >
+                                        <div class="progress"></div>
+                                      </div>
                                 </div>
                             </div>
 
@@ -581,7 +634,7 @@
                                 Show all</div>
                             <div class="artists">
                                 <div class="b">
-                                    <!-- <img id="alb-img" src="stk.jpg" alt=""> -->
+                                    <img id="alb-img" src="stk.jpg" alt="">
                                     <p>Sanam Teri Kasam(Original Motion...</p>
                                     <p id="a-id">Himesh Reshammiya</p>
                                     
@@ -616,7 +669,7 @@
 
                         </div>
                     </div>
-                    172.18.186.37
+          
                     <div class="row2">
                         <h2>Popular albums and singles</h2>
                         <div class="albums">
@@ -667,7 +720,7 @@
                                 Show all</div>
                             <div class="artists">
                                 <div class="b">
-                                    <img id="alb-img" src="icon.jpg" alt="">
+                                    <img id="alb-img" src="/clone/rap91.jpg" alt="">
                                     <!-- <p>Sanam Teri </p> -->
                                     <p id="a-id">Hottest tracks from your favourite I-Pop Icons.Cover-King</p>
                                 </div>
